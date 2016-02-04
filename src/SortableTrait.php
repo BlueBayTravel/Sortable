@@ -43,7 +43,7 @@ trait SortableTrait
             $query = (array) $query[$this->sortParameterName];
         }
 
-        $criteria = $this->getCriteria();
+        $criteria = $this->getCriteria($builder, $query);
         $this->applyCriteria($builder, $criteria);
     }
 
