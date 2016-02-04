@@ -45,6 +45,14 @@ class Criterion
      */
     protected $order;
 
+    /**
+     * Create a new criterion instance.
+     *
+     * @param string $field
+     * @param string $order
+     *
+     * @throws \InvalidArgumentException
+     */
     public function __construct($field, $order)
     {
         if (!in_array($order, [static::ORDER_ASCENDING, static::ORDER_DESCENDING])) {

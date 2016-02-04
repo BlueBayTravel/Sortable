@@ -31,6 +31,14 @@ trait SortableTrait
      */
     protected $defaultSortCriteria = [];
 
+    /**
+     * Scope sorted results.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param array                                 $query
+     *
+     * @return void
+     */
     public function scopeSorted(Builder $builder, $query = [])
     {
         $query = (array)($query ?: Input::get($this->sortParameterName, $this->defaultSortCriteria));
@@ -47,6 +55,14 @@ trait SortableTrait
         $this->applyCriteria($builder, $criteria);
     }
 
+    /**
+     * Get the criteria instances.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param array                                 $query
+     *
+     * @return array
+     */
     protected function getCriteria(Builder $builder, array $query)
     {
         $criteria = [];
@@ -60,6 +76,14 @@ trait SortableTrait
         return $criteria;
     }
 
+    /**
+     * Determines if the field we're asking to sort by is indeed sortable.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param string                                $field
+     *
+     * @return bool
+     */
     protected function isFieldSortable(Builder $builder, $field)
     {
         $sortable = $this->getSortableAttributes($builder);
@@ -67,6 +91,14 @@ trait SortableTrait
         return in_array($field, $sortable) || in_array('*', $sortable);
     }
 
+    /**
+     * Applies the sort criteria.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     * @param array                                 $criteria
+     *
+     * @return void
+     */
     protected function applyCriteria(Builder $builder, array $criteria)
     {
         foreach ($criteria as $criterion) {
@@ -74,6 +106,15 @@ trait SortableTrait
         }
     }
 
+    /**
+     * Returns all of the sortable attributes.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $builder
+     *
+     * @throws \RuntimeException
+     *
+     * @return void
+     */
     protected function getSortableAttributes(Builder $builder)
     {
         $model = $builder->getModel();
