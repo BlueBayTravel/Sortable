@@ -1,0 +1,30 @@
+{
+    "name": "bluebaytravel/sortable",
+    "description": "Alternative sortable trait based on jedrzej/sortable",
+    "keywords": ["laravel", "sort", "sortable", "eloquent", "model", "api", "request", "bluebaytravel"],
+    "homepage": "http://bluebaytravel.co.uk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Brooks",
+            "email": "james@bluebaytravel.co.uk"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^5.1|5.2",
+        "illuminate/support": "^5.1|5.2"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.4",
+        "phpunit/phpunit": "^5.1"
+    },
+    "suggest": {
+        "jedrzej/searchable": "Allows filtering your models using request parameters",
+        "jedrzej/withable": "Allows eager loading of relations using request parameters"
+    },
+    "autoload": {
+        "psr-4": {
+            "BlueBayTravel\\Sortable\\": "src/"
+        }
+    }
+}
