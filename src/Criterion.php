@@ -84,7 +84,7 @@ class Criterion
      */
     public function apply(Builder $builder)
     {
-        $sortMethod = 'sort'.Str::studlyCase($this->getField());
+        $sortMethod = 'sort'.Str::studly($this->getField());
 
         if (method_exists($builder->getModel(), $sortMethod)) {
             call_user_func_array([

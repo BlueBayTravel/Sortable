@@ -51,7 +51,7 @@ trait SortableTrait
     {
         $criteria = [];
         foreach ($query as $key => $value) {
-            $criterion = new Criterion($key, $query);
+            $criterion = new Criterion($key, $value);
             if ($this->isFieldSortable($builder, $criterion->getField())) {
                 $criteria[] = $criterion;
             }
